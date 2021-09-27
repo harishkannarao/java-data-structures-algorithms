@@ -3,8 +3,8 @@ plugins {
 }
 
 // variables for gradle.properties
-val projectVersion: String by project
 val javaVersion: String by project
+val className: String by project
 val junitVersion: String by project
 val assertjVersion: String by project
 
@@ -27,5 +27,12 @@ allprojects {
 
 	tasks.withType<Test> {
 		useJUnitPlatform()
+	}
+
+	task<JavaExec>("runClass") {
+		description = "Execute Main Program"
+		mainClass.set(className)
+		classpath = sourceSets["main"].runtimeClasspath
+		dependsOn(tasks["compileJava"])
 	}
 }

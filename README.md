@@ -11,3 +11,11 @@ This repository is to practise Data Structures and Algorithms using Java.
 ## Running the test and build 
 
     ./gradlew clean build
+
+## Running a main class
+    
+    ./gradlew runClass -Dorg.gradle.project.className=com.harishkannarao.java.dsa.MainProgram
+
+or 
+
+    export ORG_GRADLE_PROJECT_className=com.harishkannarao.java.dsa.MainProgram && ./gradlew runClass
