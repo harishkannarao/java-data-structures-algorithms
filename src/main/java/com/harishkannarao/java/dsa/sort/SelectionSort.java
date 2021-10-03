@@ -7,9 +7,9 @@ public class SelectionSort {
     public static int[] sortAscending(int[] input) {
         int[] result = Arrays.copyOf(input, input.length);
         for(int lastSortedIndex = input.length - 1; lastSortedIndex > 0; lastSortedIndex--) {
-            int largest = result[0];
-            int largestIndex = 0;
-            for (int index = 1; index <= lastSortedIndex; index++) {
+            int largest = result[lastSortedIndex];
+            int largestIndex = lastSortedIndex;
+            for (int index = lastSortedIndex - 1 ; index >= 0; index--) {
                 if (result[index] > largest) {
                     largest = result[index];
                     largestIndex = index;
