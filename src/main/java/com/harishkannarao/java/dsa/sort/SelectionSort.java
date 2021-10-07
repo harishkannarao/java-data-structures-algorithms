@@ -18,6 +18,20 @@ public class SelectionSort {
         return result;
     }
 
+    public static int[] sortDescending(int[] input) {
+        int[] result = Arrays.copyOf(input, input.length);
+        for(int lastSortedIndex = input.length - 1; lastSortedIndex > 0; lastSortedIndex--) {
+            int smallestIndex = 0;
+            for (int index = 1; index <= lastSortedIndex; index++) {
+                if (result[index] < result[smallestIndex]) {
+                    smallestIndex = index;
+                }
+            }
+            swap(result, smallestIndex, lastSortedIndex);
+        }
+        return result;
+    }
+
     private static void swap(int[] input, int i, int j) {
         if (i == j) {
             return;
