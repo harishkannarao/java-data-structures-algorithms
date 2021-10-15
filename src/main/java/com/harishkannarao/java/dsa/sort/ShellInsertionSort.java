@@ -24,22 +24,24 @@ public class ShellInsertionSort {
         return result;
     }
 
-    /*public static int[] sortDescending(int[] input) {
+    public static int[] sortDescending(int[] input) {
         int[] result = Arrays.copyOf(input, input.length);
-        for (int unsortedIndex = input.length - 1; unsortedIndex >= 0; unsortedIndex--) {
-            int current = result[unsortedIndex];
-            for (int i = unsortedIndex + 1; i < result.length; i++) {
-                if (current < result[i]) {
-                    result[i-1] = result[i];
-                    if (i == result.length - 1) {
-                        result[i] = current;
+        for(int gap = result.length / 2; gap >= 1; gap = gap / 2) {
+            for (int frontIndex = (result.length -1) - gap; frontIndex >= 0; frontIndex--) {
+                int current = result[frontIndex];
+                for(int backIndex = frontIndex + gap; backIndex < result.length; backIndex = backIndex + gap) {
+                    if (current < result[backIndex]) {
+                        result[backIndex - gap] = result[backIndex];
+                        if (backIndex + gap >= result.length) {
+                            result[backIndex] = current;
+                        }
+                    } else {
+                        result[backIndex - gap] = current;
+                        break;
                     }
-                } else {
-                    result[i-1] = current;
-                    break;
                 }
             }
         }
         return result;
-    }*/
+    }
 }
