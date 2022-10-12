@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent.*
+
 plugins {
 	id("java")
 }
@@ -27,6 +29,7 @@ allprojects {
 
 	tasks.withType<Test> {
 		useJUnitPlatform()
+		testLogging.events = setOf(FAILED, SKIPPED, PASSED)
 	}
 
 	task<JavaExec>("runClass") {
